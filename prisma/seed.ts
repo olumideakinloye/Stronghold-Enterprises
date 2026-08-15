@@ -1,2 +1,0 @@
-import {PrismaClient} from "@prisma/client";import {samples} from "../lib/content";import bcrypt from "bcryptjs";const prisma=new PrismaClient();
-async function main(){for(const item of samples)await prisma.listing.upsert({where:{slug:item.slug},update:item,create:item});const email=process.env.ADMIN_EMAIL;if(email&&process.env.ADMIN_PASSWORD)await prisma.user.upsert({where:{email},update:{},create:{email,name:"Stronghold Admin",role:"SUPER_ADMIN",passwordHash:await bcrypt.hash(process.env.ADMIN_PASSWORD,12)}})}main().finally(()=>prisma.$disconnect());

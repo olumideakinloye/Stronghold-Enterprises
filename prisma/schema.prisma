@@ -1,9 +1,0 @@
-generator client { provider = "prisma-client-js" }
-datasource db { provider = "postgresql"; url = env("DATABASE_URL") }
-enum Role { SUPER_ADMIN EDITOR }
-enum LeadStatus { NEW IN_PROGRESS CLOSED }
-enum ListingKind { PROPERTY VEHICLE CATALOGUE }
-model User { id String @id @default(cuid()) email String @unique name String role Role @default(EDITOR) passwordHash String createdAt DateTime @default(now()) activities Activity[] }
-model Listing { id String @id @default(cuid()) kind ListingKind module String title String slug String @unique description String price Int? location String? status String imageUrl String? meta Json? published Boolean @default(true) createdAt DateTime @default(now()) updatedAt DateTime @updatedAt }
-model Inquiry { id String @id @default(cuid()) module String name String email String phone String message String details Json? status LeadStatus @default(NEW) createdAt DateTime @default(now()) }
-model Activity { id String @id @default(cuid()) action String userId String? user User? @relation(fields:[userId],references:[id]) createdAt DateTime @default(now()) }

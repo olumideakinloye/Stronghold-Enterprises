@@ -1,3 +1,10 @@
-import { NextRequest, NextResponse } from "next/server"; import { jwtVerify } from "jose";
-export async function proxy(req: NextRequest) { if (req.nextUrl.pathname === "/admin/login") return NextResponse.next(); const token = req.cookies.get("stronghold_session")?.value; if (!token || !process.env.AUTH_SECRET) return NextResponse.redirect(new URL("/admin/login", req.url)); try { await jwtVerify(token, new TextEncoder().encode(process.env.AUTH_SECRET)); return NextResponse.next() } catch { return NextResponse.redirect(new URL("/admin/login", req.url)) } }
-export const config = { matcher: ["/admin/:path*"] };
+import { type NextRequest } from "next/server";
+import { updateSession } from "@/lib/supabase/middleware";
+
+export async function proxy(request: NextRequest) {
+  return updateSession(request);
+}
+
+export const config = {
+  matcher: ["/admin/:path*"],
+};
