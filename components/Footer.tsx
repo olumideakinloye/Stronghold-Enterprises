@@ -48,7 +48,7 @@ export default function Footer() {
           <ul className="mt-3 space-y-2.5 text-sm text-brand-muted">
             <li className="flex items-start gap-2">
               <MapPin size={16} className="mt-0.5 shrink-0 text-brand-green" />
-              Suite H12, Heritage Mall, Cocoa House, Dugbe, Ibadan
+               H12 Heritage Mall, Cocoa House, Dugbe, Ibadan
             </li>
             <li className="flex items-center gap-2">
               <Phone size={16} className="text-brand-green" /> +234 800 000 0000

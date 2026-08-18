@@ -107,7 +107,7 @@ export default function HomePage() {
                 <div className="flex items-center gap-2 text-left">
                   <MapPin size={16} className="text-brand-green" />
                   <div>
-                    <p className="text-xs font-semibold">Suite H12, Heritage Mall</p>
+                    <p className="text-xs font-semibold">H12 Heritage Mall</p>
                     <p className="text-[11px] text-brand-muted">Cocoa House, Dugbe, Ibadan</p>
                   </div>
                 </div>
@@ -181,7 +181,7 @@ export default function HomePage() {
             Built in Ibadan. Trusted across every line of business.
           </h2>
           <p className="mt-4 text-brand-muted">
-            Stronghold Enterprises Ltd has operated from Suite H12, Heritage Mall, Cocoa House,
+            Stronghold Enterprises Ltd has operated from H12 Heritage Mall, Cocoa House,
             Dugbe, Ibadan — serving clients across security, property, consultancy, logistics and
             automobiles. This platform is our first digital home: the same trusted service you know,
             now reachable from anywhere.
@@ -200,7 +200,7 @@ export default function HomePage() {
           <p className="text-2xl font-extrabold">7639871</p>
           <div className="mt-6 h-px bg-brand-line" />
           <p className="mt-6 text-sm font-semibold text-brand-muted">Registered Office</p>
-          <p className="mt-1 font-medium">Suite H12, Heritage Mall, Cocoa House, Dugbe, Ibadan, Nigeria</p>
+          <p className="mt-1 font-medium">H12 Heritage Mall, Cocoa House, Dugbe, Ibadan, Nigeria</p>
         </ScrollFade>
       </Section>
 
