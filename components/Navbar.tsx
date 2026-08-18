@@ -152,7 +152,7 @@ export default function Navbar() {
   if (pathname?.startsWith("/admin")) return null;
 
   return (
-    <header className={`sticky top-4 z-50 mx-auto flex w-full justify-center ${expand ? "px-0 top-0" : "px-10 sm:px-20"} transition-all ease-in-out duration-500`}>
+    <header className={`sticky z-50 mx-auto flex w-full justify-center ${expand ? "px-0 top-0" : "px-10 sm:px-20 top-4"} transition-all ease-in-out duration-500`}>
       <nav className={`glass-pill backdrop-blur-xl flex w-full items-center justify-between py-2.5 shadow-glass  sm:px-6 px-4 ${expand ? "rounded-none" : "rounded-full"} transition-all ease-in-out duration-300`}>
         <Link href="/" className="flex items-center gap-2 font-extrabold tracking-tight">
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-ink text-white">
