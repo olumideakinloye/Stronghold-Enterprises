@@ -31,11 +31,13 @@ export function GlassCard({
   className,
   delay = 0,
   tilt = true,
+  bg
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
   tilt?: boolean;
+  bg?: string
 }) {
   return (
     <div
@@ -43,9 +45,50 @@ export function GlassCard({
       data-delay={delay}
     >
       {tilt ? <Tilt3D>{children}</Tilt3D> : children}
+    </div >
+  );
+}
+export function Card({
+  children,
+  className,
+  delay = 0,
+  tilt = true,
+  bg,
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  tilt?: boolean;
+  bg?: string;
+}) {
+  return (
+    <div
+      className={clsx(
+        "relative overflow-hidden rounded-xl2 border border-white shadow-lg scroll-fade",
+        className
+      )}
+      data-delay={delay}
+    >
+      {/* Background image */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center group-hover:scale-105 transition-all duration-700"
+        style={{
+          backgroundImage: `url(${bg})`,
+        }}
+      />
+
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+
+      {/* Content */}
+      <div className="relative z-20 h-full w-full p-6">
+        {tilt ? <Tilt3D>{children}</Tilt3D> : children}
+      </div>
     </div>
   );
 }
+
+
 
 export function ScrollFade({
   children,
