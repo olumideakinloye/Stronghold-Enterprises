@@ -31,10 +31,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-sans bg-brand-bg text-brand-ink antialiased">
+      <body className="font-sans bg-brand-bg text-brand-ink antialiased pt-0">
         <ScrollRevealProvider>
           <Navbar />
-          <main>{children}</main>
+          <main className="relative">{children}</main>
           <Footer />
         </ScrollRevealProvider>
       </body>

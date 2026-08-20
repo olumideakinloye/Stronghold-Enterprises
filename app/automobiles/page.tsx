@@ -17,7 +17,7 @@ const SERVICES = [
 ];
 
 export default async function AutomobilesPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: vehicles } = await supabase
     .from("vehicle_listings")
     .select("*")

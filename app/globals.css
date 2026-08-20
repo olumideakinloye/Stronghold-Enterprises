@@ -92,3 +92,50 @@ select:focus-visible {
   background-clip: text;
   color: transparent;
 }
+
+/* ---- Hero background slideshow: slow continuous Ken Burns drift ---- */
+@keyframes heroKenburns {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.14) translate3d(-1.5%, -1.5%, 0);
+  }
+}
+.hero-slide-media {
+  animation: heroKenburns 16s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* ---- Hero headline/copy: fades up fresh each time the slide changes ---- */
+@keyframes heroTextIn {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-heroTextIn {
+  animation: heroTextIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ---- Hero scroll cue: dot drifts down inside the mouse outline, then resets ---- */
+@keyframes scrollWheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+}
+.animate-scrollWheel {
+  animation: scrollWheel 1.8s ease-in-out infinite;
+}

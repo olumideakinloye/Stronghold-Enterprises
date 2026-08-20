@@ -152,8 +152,8 @@ export default function Navbar() {
   if (pathname?.startsWith("/admin")) return null;
 
   return (
-    <header className={`sticky z-50 mx-auto flex w-full justify-center ${expand ? "px-0 top-0" : "px-10 sm:px-20 top-4"} transition-all ease-in-out duration-500`}>
-      <nav className={`glass-pill backdrop-blur-xl flex w-full items-center justify-between py-2.5 shadow-glass  sm:px-6 px-4 ${expand ? "rounded-none" : "rounded-full"} transition-all ease-in-out duration-300`}>
+    <header className={`fixed z-50 mx-auto flex w-full justify-center ${expand ? "px-0 top-0" : "px-10 sm:px-20 top-4"} transition-all ease-in-out duration-500`}>
+      <nav className={`glass-pill backdrop-blur-xl bg-white/10 flex w-full items-center justify-between py-2.5 shadow-glass  sm:px-6 px-4 ${expand ? "rounded-none" : "rounded-full"} transition-all ease-in-out duration-300`}>
         <Link href="/" className="flex items-center gap-2 font-extrabold tracking-tight">
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-ink text-white">
             <ShieldCheck size={16} />
@@ -190,7 +190,7 @@ export default function Navbar() {
                       key={m.id}
                       href={`/${m.slug}`}
                       onClick={() => setServicesOpen(false)}
-                      className="group flex items-start gap-3 rounded-xl p-3 hover:bg-green-200/50 transition-colors"
+                      className="group flex items-start gap-3 rounded-xl p-3 hover:bg-brand-green-mist transition-colors"
                     >
                       <span>
                         <span className="flex items-center gap-1.5 text-sm font-medium text-ink">
@@ -230,18 +230,6 @@ export default function Navbar() {
           </div>
 
           <NavLink href="/contact">Contact</NavLink>
-          {/* {MODULES.map((m) => (
-            <Link
-              key={m.href}
-              href={m.href}
-              className={clsx(
-                "rounded-full px-3.5 py-2 text-sm font-medium text-brand-ink/80 transition hover:bg-white/70 hover:text-brand-ink",
-                pathname === m.href && "bg-white text-brand-ink shadow-sm"
-              )}
-            >
-              {m.label}
-            </Link>
-          ))} */}
         </div>
 
         <div className="flex items-center gap-2">

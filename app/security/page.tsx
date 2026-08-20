@@ -15,7 +15,7 @@ const CATEGORIES = [
 ];
 
 export default async function SecurityPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: items } = await supabase
     .from("catalogue_items")
     .select("*")

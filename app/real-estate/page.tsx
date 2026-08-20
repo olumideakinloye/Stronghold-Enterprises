@@ -15,7 +15,7 @@ const STATUS_LABEL: Record<string, string> = {
 };
 
 export default async function RealEstatePage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: listings } = await supabase
     .from("property_listings")
     .select("*")
