@@ -1,39 +1,53 @@
 import Link from "next/link";
-import { ArrowUpRight, ShieldCheck, Home as HomeIcon, Briefcase, Truck, Car, MapPin } from "lucide-react";
-import { Section, Eyebrow, GlassCard, ScrollFade } from "@/components/ui";
+import Image from "next/image";
+import { ArrowUpRight, ShieldCheck, Home as HomeIcon, Briefcase, Truck, Car, MapPin, Check } from "lucide-react";
+
+import { Section, Eyebrow, Card, ScrollFade } from "@/components/ui";
+// 
 import LeadForm from "@/components/LeadForm";
 import HeroScene from "@/components/three/HeroScene";
+
 
 const MODULES = [
   {
     slug: "security",
     icon: ShieldCheck,
+    image: '/modules/security_card_bg.jpg',
     name: "Security",
-    blurb: "Trained personnel, CCTV kits and solar backup systems that keep homes and businesses protected.",
+    blurb: "Protection you don't have to think twice about.",
+    highlights: ["Guard Services", "Surveillance Systems"],
   },
   {
     slug: "real-estate",
     icon: HomeIcon,
+    image: '/modules/real-estate_card_bg.jpg',
     name: "Real Estate",
-    blurb: "Property management and agency services — buy, rent, or let us manage your asset end-to-end.",
+    blurb: "Every address starts here.",
+    highlights: ["Property Sales", "Rentals"]
   },
   {
     slug: "consultancy",
     icon: Briefcase,
+    image: '/modules/consult_card_bg.png',
     name: "Consultancy",
-    blurb: "Business and security consultancy for organisations that want a clear, structured way forward.",
+    blurb: "Strong foundations. Smarter decisions.",
+    highlights: ["Business Structuring", "Financial Consultancy"]
   },
   {
     slug: "logistics",
     icon: Truck,
+    image: '/modules/logistics_card_bg.jpeg',
     name: "Logistics",
-    blurb: "Airport transfers, event transport and inter-state travel — reliable movement, on schedule.",
+    blurb: "Wherever it needs to go, however it needs to get there.",
+    highlights: ["Airport Transfers", "Delivery Services"]
   },
   {
     slug: "automobiles",
     icon: Car,
+    image: '/modules/automobiles_card_bg.jpeg',
     name: "Automobiles",
-    blurb: "Buy, sell, swap, upgrade, diagnose and repair — a full-service desk for every vehicle need.",
+    blurb: "Get moving, on your terms.",
+    highlights: ["Car Rentals", "Car Sales"]
   },
 ] as const;
 
@@ -151,27 +165,61 @@ export default function HomePage() {
           </p>
         </ScrollFade>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {MODULES.map((m, i) => (
-            <GlassCard key={m.slug} delay={i * 80} className="group flex flex-col justify-between">
-              <div>
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-green-mist text-brand-green-dark">
-                  <m.icon size={20} />
-                </span>
-                <p className="mt-4 text-lg font-bold">{m.name}</p>
-                <p className="mt-2 text-sm text-brand-muted">{m.blurb}</p>
-              </div>
-              <Link
-                href={`/${m.slug}`}
-                className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand-green-dark"
-              >
-                Visit {m.name}
-                <ArrowUpRight size={16} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-6">
+          {MODULES.map((mod, i) => {
+            let modStyle;
+
+            switch (i) {
+              case 0:
+                modStyle = "md:col-span-4";
+                break;
+
+              case 1:
+                modStyle = "md:col-span-2";
+                break;
+
+              case 2:
+                modStyle = "md:col-span-2";
+                break;
+
+              case 3:
+                modStyle = "md:col-span-3";
+                break;
+
+              case 4:
+                modStyle = "md:col-span-3";
+                break;
+
+              default:
+                modStyle = "md:col-span-2";
+            }
+
+            return (
+              <Link key={mod.slug} href={`/${mod.slug}`} className={`${modStyle} group relative overflow-hidden`}>
+                <Card
+                  delay={i * 80}
+                  bg={mod.image}
+                  tilt={false}
+                >
+                  <div>
+                    <span className="flex h-11 w-11 items-center justify-center rounded-full text-white place-self-end ">
+                      <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 transition-all ease-in-out" />
+                    </span>
+
+                    <p className="mt-20 text-xl font-bold text-white">{mod.name}</p>
+                    <p className="mt-2 text-sm text-white/90 mb-3">{mod.blurb}</p>
+                    {mod.highlights.length > 0 && mod.highlights.map((highlight, i) => (
+                      <p key={i} className="flex text-xs text-white/90"><Check className="text-brand-green pr-1" size={18} />{highlight}</p>
+                    ))}
+                  </div>
+
+                </Card>
               </Link>
-            </GlassCard>
-          ))}
-        </div>
-      </Section>
+
+            )
+          })}
+        </div >
+      </Section >
 
       {/* ---------------- ABOUT ---------------- */}
       <Section id="about" className="grid gap-10 md:grid-cols-2 md:items-center">
@@ -202,7 +250,7 @@ export default function HomePage() {
           <p className="mt-6 text-sm font-semibold text-brand-muted">Registered Office</p>
           <p className="mt-1 font-medium">H12 Heritage Mall, Cocoa House, Dugbe, Ibadan, Nigeria</p>
         </ScrollFade>
-      </Section>
+      </Section >
 
       {/* ---------------- CONTACT ---------------- */}
       <Section id="contact" className="grid gap-10 md:grid-cols-2">
@@ -216,10 +264,10 @@ export default function HomePage() {
             business line within one working day.
           </p>
         </ScrollFade>
-        <ScrollFade delay={150} className="glass-panel rounded-xl2 p-6 sm:p-8">
+        <ScrollFade delay={150} className="glass-panel backdrop-blur-xl rounded-xl2 p-6 sm:p-8">
           <LeadForm module="consultancy" title="General enquiry" />
         </ScrollFade>
-      </Section>
+      </Section >
     </>
   );
 }
