@@ -22,7 +22,7 @@ export default function ModuleHero({
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/3 top-[-10%] h-[460px] w-[460px] -translate-x-1/2 rounded-full bg-brand-green/10 blur-3xl" />
       </div>
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 pb-6 pt-14 sm:pt-20 md:grid-cols-2 md:items-center">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 pb-6 pt-14 sm:pt-20 md:grid-cols-2 md:items-center mt-10">
         <ScrollFade>
           <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-green-mist text-brand-green-dark">
             <Icon size={22} />
