@@ -35,7 +35,7 @@ export default function HeroScene() {
 
   return (
     <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-      <Canvas
+      {/* <Canvas
         dpr={[1, 1.75]}
         camera={{ position: [0, 0.35, 6.4], fov: 42 }}
         gl={{ alpha: true, antialias: true }}
@@ -48,7 +48,7 @@ export default function HeroScene() {
           <HeroEmblem progress={progress} mouse={mouse} />
           <Environment preset="city" />
         </Suspense>
-      </Canvas>
+      </Canvas> */}
     </div>
   );
 }
