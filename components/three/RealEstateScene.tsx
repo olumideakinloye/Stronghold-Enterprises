@@ -1,11 +1,30 @@
 "use client";
+
+import { useGLTF } from "@react-three/drei";
 import SceneShell from "./SceneShell";
-import PropertyBuilding from "./PropertyBuilding";
+
+function RealEstateModel() {
+  const { scene } = useGLTF("/models/appartement.glb");
+
+  return (
+    <primitive
+      object={scene}
+      scale={1}
+      position={[3, -1, 0]}
+    />
+  );
+}
 
 export default function RealEstateScene() {
   return (
-    <SceneShell cameraPosition={[4.5, 2, 5.5]} minDistance={3.5} maxDistance={9}>
-      <PropertyBuilding />
+    <SceneShell
+      cameraPosition={[0, -1, 0]}
+      minDistance={10.2}
+      maxDistance={15.5}
+    >
+      <RealEstateModel />
     </SceneShell>
   );
 }
+
+useGLTF.preload("/models/appartement.glb");

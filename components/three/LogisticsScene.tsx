@@ -1,11 +1,25 @@
 "use client";
 import SceneShell from "./SceneShell";
-import LogisticsVan from "./LogisticsVan";
+import { useGLTF } from "@react-three/drei";
+
+function LogisticsModel() {
+  const { scene } = useGLTF("/models/logistics.glb");
+
+  return (
+    <primitive
+      object={scene}
+      scale={1}
+      position={[0, -1, 0]}
+    />
+  );
+}
 
 export default function LogisticsScene() {
   return (
-    <SceneShell cameraPosition={[4.2, 1.8, 5]} minDistance={3.2} maxDistance={8.5}>
-      <LogisticsVan />
+    <SceneShell cameraPosition={[4.2, 1.8, 5]} minDistance={8.2} maxDistance={10.5}>
+      <LogisticsModel />
     </SceneShell>
   );
 }
+
+useGLTF.preload("/models/logistics.glb");
