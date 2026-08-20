@@ -6,7 +6,6 @@ import {
   Briefcase,
   Truck,
   Car,
-  MapPin,
 } from "lucide-react";
 import { Section, Eyebrow, GlassCard, ScrollFade } from "@/components/ui";
 import LeadForm from "@/components/LeadForm";
@@ -52,9 +51,12 @@ const MODULES = [
 export default function HomePage() {
   return (
     <>
-     {/* ---------------- HERO ---------------- */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-1/2 top-0 bottom-0 m-auto h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-brand-green/10 blur-3xl" />
+        <div className="absolute left-[-10%] top-[90%] h-[380px] w-[380px] rounded-full bg-brand-green-light/20 blur-3xl" />
+      </div>
+      {/* ---------------- HERO ---------------- */}
       <Hero />
-
       {/* ---------------- STATS STRIP ---------------- */}
       <Section className="py-10 sm:py-14">
         <ScrollFade className="glass-panel grid grid-cols-2 gap-6 rounded-xl2 p-8 sm:grid-cols-4">
@@ -117,53 +119,6 @@ export default function HomePage() {
             </GlassCard>
           ))}
         </div>
-      </Section>
-
-      {/* ---------------- ABOUT ---------------- */}
-      <Section
-        id="about"
-        className="grid gap-10 md:grid-cols-2 md:items-center"
-      >
-        <ScrollFade>
-          <Eyebrow>About Stronghold</Eyebrow>
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Built in Ibadan. Trusted across every line of business.
-          </h2>
-          <p className="mt-4 text-brand-muted">
-            Stronghold Enterprises Ltd has operated from H12 Heritage Mall,
-            Cocoa House, Dugbe, Ibadan — serving clients across security,
-            property, consultancy, logistics and automobiles. This platform is
-            our first digital home: the same trusted service you know, now
-            reachable from anywhere.
-          </p>
-          <div className="mt-6 grid grid-cols-2 gap-4">
-            {[
-              "Licensed & Registered",
-              "Local, On-the-ground Team",
-              "Same-day Response",
-              "Transparent Pricing",
-            ].map((f) => (
-              <div
-                key={f}
-                className="flex items-center gap-2 text-sm font-medium"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-green" />
-                {f}
-              </div>
-            ))}
-          </div>
-        </ScrollFade>
-        <ScrollFade delay={150} className="glass-panel rounded-xl2 p-8">
-          <p className="text-sm font-semibold text-brand-muted">RC Number</p>
-          <p className="text-2xl font-extrabold">7639871</p>
-          <div className="mt-6 h-px bg-brand-line" />
-          <p className="mt-6 text-sm font-semibold text-brand-muted">
-            Registered Office
-          </p>
-          <p className="mt-1 font-medium">
-            H12 Heritage Mall, Cocoa House, Dugbe, Ibadan, Nigeria
-          </p>
-        </ScrollFade>
       </Section>
 
       {/* ---------------- CONTACT ---------------- */}

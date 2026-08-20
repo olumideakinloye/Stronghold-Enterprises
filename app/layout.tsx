@@ -34,7 +34,7 @@ export default function RootLayout({
       <body className="font-sans bg-brand-bg text-brand-ink antialiased pt-0">
         <ScrollRevealProvider>
           <Navbar />
-          <main>{children}</main>
+          <main className="relative">{children}</main>
           <Footer />
         </ScrollRevealProvider>
       </body>

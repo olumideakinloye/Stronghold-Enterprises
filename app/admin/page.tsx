@@ -2,7 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { Inbox, ShieldCheck, Home, Car } from "lucide-react";
 
 export default async function AdminOverviewPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const [{ count: leadsCount }, { count: newLeadsCount }, { count: catalogueCount }, { count: propertyCount }, { count: vehicleCount }] =
     await Promise.all([
