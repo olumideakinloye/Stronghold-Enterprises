@@ -2,12 +2,13 @@ import Link from "next/link";
 import {
   ArrowUpRight,
   ShieldCheck,
+  Check,
   Home as HomeIcon,
   Briefcase,
   Truck,
   Car,
 } from "lucide-react";
-import { Section, Eyebrow, GlassCard, ScrollFade } from "@/components/ui";
+import { Section, Eyebrow, Card, ScrollFade } from "@/components/ui";
 import LeadForm from "@/components/LeadForm";
 import Hero from "@/components/Hero";
 const MODULES = [
@@ -135,7 +136,7 @@ export default function HomePage() {
                 >
                   <div>
                     <span className="flex h-11 w-11 items-center justify-center rounded-full text-white place-self-end ">
-                      <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 transition-all ease-in-out" />
+                      <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 transition-all ease-in-out duration-700" />
                     </span>
 
                     <p className="mt-20 text-xl font-bold text-white">{mod.name}</p>
