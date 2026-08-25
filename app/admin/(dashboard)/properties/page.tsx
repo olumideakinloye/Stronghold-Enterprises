@@ -72,20 +72,20 @@ export default function PropertiesPage() {
       <p className="mt-1 text-sm text-brand-muted">Sale, rental and managed properties.</p>
 
       <form onSubmit={addItem} className="mt-6 grid gap-3 rounded-xl2 border border-brand-line bg-white p-5 shadow-card sm:grid-cols-3">
-        <input required placeholder="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm sm:col-span-2" />
-        <select value={form.status} onChange={(e) => setForm({ ...form, status: e.target.value as Listing["status"] })} className="rounded-lg border border-brand-line px-3 py-2 text-sm">
+        <input required placeholder="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm sm:col-span-2 bg-white"/>
+        <select value={form.status} onChange={(e) => setForm({ ...form, status: e.target.value as Listing["status"] })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white">
           <option value="for_rent">For Rent</option>
           <option value="for_sale">For Sale</option>
           <option value="managed">Managed</option>
         </select>
-        <input placeholder="Location" value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm" />
-        <input type="number" placeholder="Price (₦)" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm" />
+        <input placeholder="Location" value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white"/>
+        <input type="number" placeholder="Price (₦)" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
         <div className="flex gap-2">
-          <input type="number" placeholder="Beds" value={form.bedrooms} onChange={(e) => setForm({ ...form, bedrooms: e.target.value })} className="w-full rounded-lg border border-brand-line px-3 py-2 text-sm" />
-          <input type="number" placeholder="Baths" value={form.bathrooms} onChange={(e) => setForm({ ...form, bathrooms: e.target.value })} className="w-full rounded-lg border border-brand-line px-3 py-2 text-sm" />
+          <input type="number" placeholder="Beds" value={form.bedrooms} onChange={(e) => setForm({ ...form, bedrooms: e.target.value })} className="w-full rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
+          <input type="number" placeholder="Baths" value={form.bathrooms} onChange={(e) => setForm({ ...form, bathrooms: e.target.value })} className="w-full rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
         </div>
-        <textarea placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="sm:col-span-3 rounded-lg border border-brand-line px-3 py-2 text-sm" rows={2} />
-        <button disabled={saving} className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-green-dark disabled:opacity-60 sm:col-span-3">
+        <textarea placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="sm:col-span-3 rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" rows={2} />
+        <button disabled={saving} className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-green-dark disabled:opacity-60 sm:col-span-3 sm:w-fit sm:justify-self-start">
           {saving ? <Loader2 size={15} className="animate-spin" /> : <Plus size={15} />}
           Add listing
         </button>
