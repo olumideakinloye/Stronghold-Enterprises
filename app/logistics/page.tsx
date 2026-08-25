@@ -17,12 +17,11 @@ export default function LogisticsPage() {
         eyebrow="Logistics"
         title="Movement you can set your watch to."
         description="From airport runs to full event transport and cross-state travel, our logistics desk plans the route so you don't have to."
-        icon={Truck}
         scene={<LogisticsScene />}
         note="Interactive 3D model — drag to explore the vehicle"
       />
 
-      <Section>
+      <Section id="contents">
         <ScrollFade>
           <Eyebrow>Services</Eyebrow>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">What we move</h2>

@@ -17,12 +17,11 @@ export default function ConsultancyPage() {
         eyebrow="Consultancy"
         title="Clear thinking, applied to your business."
         description="Our consultancy desk pairs general business advisory with our security expertise — giving you one point of contact for structure, risk and growth."
-        icon={Briefcase}
         scene={<ConsultancyScene />}
         note="Interactive 3D model — drag to explore the orbit"
       />
 
-      <Section>
+      <Section id="contents">
         <ScrollFade>
           <Eyebrow>How we help</Eyebrow>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">Advisory services</h2>

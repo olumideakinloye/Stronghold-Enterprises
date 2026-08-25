@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { Eyebrow, ScrollFade } from "@/components/ui";
+import ScrollCue from "@/components/ScrollCue";
 import HeroSlideshow, { type HeroSlide } from "@/components/HeroSlideshow";
 import {
   ShieldCheck,
@@ -56,68 +57,68 @@ const HERO_SLIDES: (HeroSlide & {
   title: React.ReactNode;
   description: string;
 })[] = [
-  {
-    src: "/hero/security_banner.jpeg",
-    alt: "Security operations",
-    eyebrow: "Security",
-    title: (
-      <>
-        Protects what <span className="text-brand-green-light">matters</span>.
-      </>
-    ),
-    description:
-      "Professional protection, surveillance, and security solutions.",
-  },
-  {
-    src: "/hero/realestate_banner.jpeg",
-    alt: "Real estate & property",
-    eyebrow: "Real Estate",
-    title: (
-      <>
-        Find <span className="text-brand-green-light">value</span>. Build{" "}
-        <span className="text-brand-green-light">opportunity</span>.
-      </>
-    ),
-    description: "Property sales, rentals, management, and development.",
-  },
-  {
-    src: "/hero/consultancy_banner.jpeg",
-    alt: "Business consultancy",
-    eyebrow: "Consultancy",
-    title: (
-      <>
-        Think <span className="text-brand-green-light">clearly</span>. Move{" "}
-        <span className="text-brand-green-light">strategically</span>.
-      </>
-    ),
-    description: "Practical guidance for businesses and organizations.",
-  },
-  {
-    src: "/hero/logistics_banner.png",
-    alt: "Logistics & transport",
-    eyebrow: "Logistics",
-    title: (
-      <>
-        Move <span className="text-brand-green-light">without limits</span>.
-      </>
-    ),
-    description:
-      "From airport transfers to interstate travel and event transportation, we get you where you need to be.",
-  },
-  {
-    src: "/hero/automobile_banner.jpg",
-    alt: "Automobiles",
-    eyebrow: "Automobiles",
-    title: (
-      <>
-        The right <span className="text-brand-green-light">vehicle</span>. The
-        right <span className="text-brand-green-light">journey</span>.
-      </>
-    ),
-    description:
-      "Buy, sell, swap, upgrade, diagnose and repair — a full-service desk for your car.",
-  },
-];
+    {
+      src: "/hero/security_banner.jpeg",
+      alt: "Security operations",
+      eyebrow: "Security",
+      title: (
+        <>
+          Protects what <span className="text-brand-green-light">matters</span>.
+        </>
+      ),
+      description:
+        "Professional protection, surveillance, and security solutions.",
+    },
+    {
+      src: "/hero/realestate_banner.jpeg",
+      alt: "Real estate & property",
+      eyebrow: "Real Estate",
+      title: (
+        <>
+          Find <span className="text-brand-green-light">value</span>. Build{" "}
+          <span className="text-brand-green-light">opportunity</span>.
+        </>
+      ),
+      description: "Property sales, rentals, management, and development.",
+    },
+    {
+      src: "/hero/consultancy_banner.jpeg",
+      alt: "Business consultancy",
+      eyebrow: "Consultancy",
+      title: (
+        <>
+          Think <span className="text-brand-green-light">clearly</span>. Move{" "}
+          <span className="text-brand-green-light">strategically</span>.
+        </>
+      ),
+      description: "Practical guidance for businesses and organizations.",
+    },
+    {
+      src: "/hero/logistics_banner.png",
+      alt: "Logistics & transport",
+      eyebrow: "Logistics",
+      title: (
+        <>
+          Move <span className="text-brand-green-light">without limits</span>.
+        </>
+      ),
+      description:
+        "From airport transfers to interstate travel and event transportation, we get you where you need to be.",
+    },
+    {
+      src: "/hero/automobile_banner.jpg",
+      alt: "Automobiles",
+      eyebrow: "Automobiles",
+      title: (
+        <>
+          The right <span className="text-brand-green-light">vehicle</span>. The
+          right <span className="text-brand-green-light">journey</span>.
+        </>
+      ),
+      description:
+        "Buy, sell, swap, upgrade, diagnose and repair — a full-service desk for your car.",
+    },
+  ];
 
 export default function Hero() {
   const [active, setActive] = useState(0);
@@ -175,26 +176,17 @@ export default function Hero() {
               type="button"
               aria-label={`Show ${s.eyebrow}`}
               onClick={() => setActive(i)}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
-                i === active
-                  ? "w-6 bg-white/90"
-                  : "w-1.5 bg-white/35 hover:bg-white/60"
-              }`}
+              className={`h-1.5 rounded-full transition-all duration-500 ${i === active
+                ? "w-6 bg-white/90"
+                : "w-1.5 bg-white/35 hover:bg-white/60"
+                }`}
             />
           ))}
         </div>
       </div>
       {/* Scroll cue — sits fixed to the bottom of the hero regardless of
           content height, hints that there's more below. */}
-      <a
-        href="#modules"
-        aria-label="Scroll to explore"
-        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 opacity-70 transition hover:opacity-100 sm:bottom-8"
-      >
-        <span className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-white/30 bg-white/10 backdrop-blur p-1.5 sm:h-11 sm:w-7">
-          <span className="h-1.5 w-1.5 rounded-full bg-white/90 animate-scrollWheel" />
-        </span>
-      </a>
+      <ScrollCue href="#modules" />
     </section>
   );
 }

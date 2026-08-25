@@ -18,7 +18,7 @@ function RealEstateModel() {
 export default function RealEstateScene() {
   return (
     <SceneShell
-      cameraPosition={[0, -1, 0]}
+      cameraPosition={[5, 0, 10]}
       minDistance={10.2}
       maxDistance={15.5}
     >

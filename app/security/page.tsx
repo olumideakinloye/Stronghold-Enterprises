@@ -29,12 +29,11 @@ export default async function SecurityPage() {
         eyebrow="Security"
         title="Protection you can see, and systems that never sleep."
         description="From armed personnel to CCTV kits and solar-backed power, we cover the full spectrum of physical security for homes, offices and estates."
-        icon={ShieldCheck}
         scene={<SecurityScene />}
         note="Interactive 3D model — drag to inspect the camera unit"
       />
 
-      <Section>
+      <Section id="contents">
         <ScrollFade>
           <Eyebrow>Core offerings</Eyebrow>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">What we provide</h2>
