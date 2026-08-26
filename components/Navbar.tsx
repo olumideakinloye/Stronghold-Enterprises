@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, ShieldCheck, ChevronDown, ArrowRight } from "lucide-react";
-import clsx from "clsx";
 
 const MODULES = [
   { href: "/security", label: "Security" },

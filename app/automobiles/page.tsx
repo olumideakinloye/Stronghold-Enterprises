@@ -30,12 +30,11 @@ export default async function AutomobilesPage() {
         eyebrow="Automobiles"
         title="Buy, sell, swap, and keep it running well."
         description="A full-service desk for vehicles — from listing your next car to diagnosing and repairing the one you already own."
-        icon={Car}
         scene={<AutomobilesScene />}
         note="Interactive 3D model — drag to rotate, scroll to zoom the vehicle"
       />
 
-      <Section>
+      <Section id="contents">
         <ScrollFade>
           <Eyebrow>Services</Eyebrow>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">What we handle</h2>
@@ -62,23 +61,23 @@ export default async function AutomobilesPage() {
           {vehicles && vehicles.length > 0 ? (
             vehicles.map((v, i) => (
               <Link key={v.id} href={`/automobiles/${v.id}`} className="block">
-              <GlassCard delay={i * 70} className="flex flex-col transition hover:-translate-y-0.5 hover:shadow-glass">
-                <div className="flex h-36 items-center justify-center rounded-lg bg-brand-green-mist">
-                  <Car className="text-brand-green" size={36} />
-                </div>
-                <div className="mt-4 flex items-start justify-between gap-2">
-                  <p className="font-bold">{v.make} {v.model}{v.year ? ` (${v.year})` : ""}</p>
-                  <span className="shrink-0 rounded-full bg-brand-bg px-2.5 py-1 text-xs font-medium text-brand-muted">
-                    {TXN_LABEL[v.transaction_type] ?? v.transaction_type}
-                  </span>
-                </div>
-                {v.description && <p className="mt-1 text-sm text-brand-muted">{v.description}</p>}
-                {v.price && (
-                  <p className="mt-4 font-extrabold text-brand-green-dark">
-                    ₦{Number(v.price).toLocaleString()}
-                  </p>
-                )}
-              </GlassCard>
+                <GlassCard delay={i * 70} className="flex flex-col transition hover:-translate-y-0.5 hover:shadow-glass">
+                  <div className="flex h-36 items-center justify-center rounded-lg bg-brand-green-mist">
+                    <Car className="text-brand-green" size={36} />
+                  </div>
+                  <div className="mt-4 flex items-start justify-between gap-2">
+                    <p className="font-bold">{v.make} {v.model}{v.year ? ` (${v.year})` : ""}</p>
+                    <span className="shrink-0 rounded-full bg-brand-bg px-2.5 py-1 text-xs font-medium text-brand-muted">
+                      {TXN_LABEL[v.transaction_type] ?? v.transaction_type}
+                    </span>
+                  </div>
+                  {v.description && <p className="mt-1 text-sm text-brand-muted">{v.description}</p>}
+                  {v.price && (
+                    <p className="mt-4 font-extrabold text-brand-green-dark">
+                      ₦{Number(v.price).toLocaleString()}
+                    </p>
+                  )}
+                </GlassCard>
               </Link>
             ))
           ) : (

@@ -10,7 +10,7 @@ function SecurityModel() {
     <primitive
       object={scene}
       scale={7}
-      position={[0, 0, 0]}
+      position={[0, -1, -1]}
     />
   );
 }
