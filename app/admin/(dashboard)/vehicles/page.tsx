@@ -62,17 +62,17 @@ export default function VehiclesPage() {
       <p className="mt-1 text-sm text-brand-muted">Buy, sell and swap listings.</p>
 
       <form onSubmit={addItem} className="mt-6 grid gap-3 rounded-xl2 border border-brand-line bg-white p-5 shadow-card sm:grid-cols-3">
-        <input required placeholder="Make" value={form.make} onChange={(e) => setForm({ ...form, make: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm" />
-        <input required placeholder="Model" value={form.model} onChange={(e) => setForm({ ...form, model: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm" />
-        <input type="number" placeholder="Year" value={form.year} onChange={(e) => setForm({ ...form, year: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm" />
-        <input type="number" placeholder="Price (₦)" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm" />
-        <select value={form.transaction_type} onChange={(e) => setForm({ ...form, transaction_type: e.target.value as Vehicle["transaction_type"] })} className="rounded-lg border border-brand-line px-3 py-2 text-sm">
+        <input required placeholder="Make" value={form.make} onChange={(e) => setForm({ ...form, make: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
+        <input required placeholder="Model" value={form.model} onChange={(e) => setForm({ ...form, model: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
+        <input type="number" placeholder="Year" value={form.year} onChange={(e) => setForm({ ...form, year: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
+        <input type="number" placeholder="Price (₦)" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
+        <select value={form.transaction_type} onChange={(e) => setForm({ ...form, transaction_type: e.target.value as Vehicle["transaction_type"] })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white">
           <option value="sell">Sell</option>
           <option value="buy">Buy</option>
           <option value="swap">Swap</option>
         </select>
-        <textarea placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm sm:col-span-3" rows={2} />
-        <button disabled={saving} className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-green-dark disabled:opacity-60 sm:col-span-3">
+        <textarea placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm sm:col-span-3 bg-white" rows={2} />
+        <button disabled={saving} className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-green-dark disabled:opacity-60 sm:col-span-3 sm:w-fit sm:justify-self-start">
           {saving ? <Loader2 size={15} className="animate-spin" /> : <Plus size={15} />}
           Add vehicle
         </button>

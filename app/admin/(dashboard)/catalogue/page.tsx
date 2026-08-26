@@ -83,20 +83,20 @@ export default function CataloguePage() {
           placeholder="Title"
           value={form.title}
           onChange={(e) => setForm({ ...form, title: e.target.value })}
-          className="rounded-lg border border-brand-line px-3 py-2 text-sm"
+          className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white"
         />
         <input
           placeholder="Category (e.g. CCTV)"
           value={form.category}
           onChange={(e) => setForm({ ...form, category: e.target.value })}
-          className="rounded-lg border border-brand-line px-3 py-2 text-sm"
+          className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white"
         />
         <input
           type="number"
           placeholder="Price (₦)"
           value={form.price}
           onChange={(e) => setForm({ ...form, price: e.target.value })}
-          className="rounded-lg border border-brand-line px-3 py-2 text-sm"
+          className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white"
         />
         <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-dashed border-brand-line px-3 py-2 text-sm text-brand-muted">
           <ImagePlus size={16} />
@@ -112,12 +112,12 @@ export default function CataloguePage() {
           placeholder="Description"
           value={form.description}
           onChange={(e) => setForm({ ...form, description: e.target.value })}
-          className="sm:col-span-2 rounded-lg border border-brand-line px-3 py-2 text-sm"
+          className="sm:col-span-2 rounded-lg border border-brand-line px-3 py-2 text-sm bg-white"
           rows={2}
         />
         <button
           disabled={saving}
-          className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-green-dark disabled:opacity-60 sm:col-span-2"
+          className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-green-dark disabled:opacity-60 sm:col-span-2 sm:w-fit sm:justify-self-start"
         >
           {saving ? <Loader2 size={15} className="animate-spin" /> : <Plus size={15} />}
           Add item
@@ -132,7 +132,11 @@ export default function CataloguePage() {
             <div key={item.id} className="rounded-xl2 border border-brand-line bg-white p-4 shadow-card">
               <div className="flex items-start justify-between">
                 <p className="font-semibold">{item.title}</p>
-                <button onClick={() => remove(item.id)} className="text-red-500 hover:text-red-700">
+                <button onClick={() => {
+                  if (window.confirm("Are you sure you want to remove this item?")) {
+                    remove(item.id);
+                  }
+                }} className="text-red-500 hover:text-red-700">
                   <Trash2 size={15} />
                 </button>
               </div>
