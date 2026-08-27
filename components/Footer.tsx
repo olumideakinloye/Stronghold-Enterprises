@@ -39,7 +39,6 @@ export default function Footer() {
           <ul className="mt-3 space-y-2 text-sm text-brand-muted">
             <li><Link href="/#about" className="hover:text-brand-green">About Us</Link></li>
             <li><Link href="/#contact" className="hover:text-brand-green">Contact</Link></li>
-            <li><Link href="/admin/login" className="hover:text-brand-green">Staff Login</Link></li>
           </ul>
         </div>
 

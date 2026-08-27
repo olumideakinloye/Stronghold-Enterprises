@@ -64,8 +64,8 @@ export default function VehiclesPage() {
       <form onSubmit={addItem} className="mt-6 grid gap-3 rounded-xl2 border border-brand-line bg-white p-5 shadow-card sm:grid-cols-3">
         <input required placeholder="Make" value={form.make} onChange={(e) => setForm({ ...form, make: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
         <input required placeholder="Model" value={form.model} onChange={(e) => setForm({ ...form, model: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
-        <input type="number" placeholder="Year" value={form.year} onChange={(e) => setForm({ ...form, year: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
-        <input type="number" placeholder="Price (₦)" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
+        <input type="number" placeholder="Year" value={form.year} min={1900} max={2099} onChange={(e) => setForm({ ...form, year: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
+        <input type="number" placeholder="Price (₦)" value={form.price} min={1000} max={500000000} onChange={(e) => setForm({ ...form, price: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
         <select value={form.transaction_type} onChange={(e) => setForm({ ...form, transaction_type: e.target.value as Vehicle["transaction_type"] })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white">
           <option value="sell">Sell</option>
           <option value="buy">Buy</option>
