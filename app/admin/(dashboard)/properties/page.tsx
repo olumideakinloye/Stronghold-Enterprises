@@ -79,10 +79,10 @@ export default function PropertiesPage() {
           <option value="managed">Managed</option>
         </select>
         <input placeholder="Location" value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white"/>
-        <input type="number" placeholder="Price (₦)" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
+        <input type="number" placeholder="Price (₦)" value={form.price} min={1000} max={500000000} onChange={(e) => setForm({ ...form, price: e.target.value })} className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
         <div className="flex gap-2">
-          <input type="number" placeholder="Beds" value={form.bedrooms} onChange={(e) => setForm({ ...form, bedrooms: e.target.value })} className="w-full rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
-          <input type="number" placeholder="Baths" value={form.bathrooms} onChange={(e) => setForm({ ...form, bathrooms: e.target.value })} className="w-full rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
+          <input type="number" placeholder="Beds" value={form.bedrooms} min={1} onChange={(e) => setForm({ ...form, bedrooms: e.target.value })} className="w-full rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
+          <input type="number" placeholder="Baths" value={form.bathrooms} min={1} onChange={(e) => setForm({ ...form, bathrooms: e.target.value })} className="w-full rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" />
         </div>
         <textarea placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="sm:col-span-3 rounded-lg border border-brand-line px-3 py-2 text-sm bg-white" rows={2} />
         <button disabled={saving} className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-green-dark disabled:opacity-60 sm:col-span-3 sm:w-fit sm:justify-self-start">

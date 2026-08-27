@@ -42,6 +42,8 @@ export default function CataloguePage() {
     e.preventDefault();
     setSaving(true);
 
+   
+
     let image_url: string | null = null;
     if (form.imageFile) {
       const path = `security/${Date.now()}-${form.imageFile.name}`;
@@ -95,6 +97,8 @@ export default function CataloguePage() {
           type="number"
           placeholder="Price (₦)"
           value={form.price}
+          min={1000}
+          max={500000000}
           onChange={(e) => setForm({ ...form, price: e.target.value })}
           className="rounded-lg border border-brand-line px-3 py-2 text-sm bg-white"
         />
