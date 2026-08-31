@@ -143,17 +143,24 @@ export default function Navbar() {
   const openServices = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setServicesOpen(true);
-  }
+  };
   const scheduleClose = () => {
     closeTimer.current = setTimeout(() => setServicesOpen(false), 120);
-  }
+  };
 
   if (pathname?.startsWith("/admin")) return null;
 
   return (
-    <header className={`fixed z-50 mx-auto flex w-screen justify-center ${expand ? "px-0 top-0" : "px-10 sm:px-20 top-3"} transition-all ease-in-out duration-500`}>
-      <nav className={`glass-pill backdrop-blur-xl bg-white/10 flex w-full items-center justify-between py-1 shadow-glass  sm:px-6 px-4 sm:py-2.5 ${expand ? "rounded-none" : "rounded-full"} transition-all ease-in-out duration-300`}>
-        <Link href="/" className="flex items-center gap-2 font-extrabold tracking-tight">
+    <header
+      className={`fixed z-50 mx-auto flex w-screen justify-center ${expand ? "px-0 top-0" : "px-10 sm:px-20 top-3"} transition-all ease-in-out duration-500`}
+    >
+      <nav
+        className={`glass-pill backdrop-blur-xl bg-white/10 flex w-full items-center justify-between py-1 shadow-glass  sm:px-6 px-4 sm:py-2.5 ${expand ? "rounded-none" : "rounded-full"} transition-all ease-in-out duration-300`}
+      >
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-extrabold tracking-tight"
+        >
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-ink text-white">
             <ShieldCheck size={16} />
           </span>
@@ -176,8 +183,9 @@ export default function Navbar() {
             >
               Services
               <ChevronDown
-                className={`w-3.5 h-3.5 transition-transform ${servicesOpen ? "rotate-180" : ""
-                  }`}
+                className={`w-3.5 h-3.5 transition-transform ${
+                  servicesOpen ? "rotate-180" : ""
+                }`}
               />
             </button>
 
@@ -251,6 +259,8 @@ export default function Navbar() {
       {open && (
         <div className="bg-white absolute left-4 right-4 top-16 z-40 rounded-2xl p-4 md:hidden">
           <div className="flex flex-col gap-1">
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/about">About</NavLink>
             {MODULES.map((m) => (
               <Link
                 key={m.href}
@@ -261,6 +271,7 @@ export default function Navbar() {
                 {m.label}
               </Link>
             ))}
+            <NavLink href="/contact">Contact</NavLink>
             <Link
               href="/#contact"
               onClick={() => setOpen(false)}
@@ -275,7 +286,13 @@ export default function Navbar() {
   );
 }
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+function NavLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
     <Link
       href={href}

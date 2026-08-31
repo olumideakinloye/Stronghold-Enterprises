@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Home as HomeIcon, MapPin, BedDouble, Bath } from "lucide-react";
 import ModuleHero from "@/components/ModuleHero";
-import RealEstateScene from "@/components/three/RealEstateScene";
+import { RealEstateScene } from "@/components/three/lazy";
 import { Section, Eyebrow, GlassCard, ScrollFade } from "@/components/ui";
 import LeadForm from "@/components/LeadForm";
 import { createClient } from "@/lib/supabase/server";

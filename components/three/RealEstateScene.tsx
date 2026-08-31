@@ -4,7 +4,7 @@ import { useGLTF } from "@react-three/drei";
 import SceneShell from "./SceneShell";
 
 function RealEstateModel() {
-  const { scene } = useGLTF("/models/appartement.glb");
+  const { scene } = useGLTF("/models/appartement.glb", true); // true = use Draco decoder
 
   return (
     <primitive

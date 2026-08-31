@@ -4,13 +4,13 @@ import { useGLTF } from "@react-three/drei";
 import SceneShell from "./SceneShell";
 
 function SecurityModel() {
-  const { scene } = useGLTF("/models/security_camera2.glb");
+  const { scene } = useGLTF("/models/security_camera2-draco.glb", true); // true = use Draco decoder
 
   return (
     <primitive
       object={scene}
       scale={7}
-      position={[0, -1, -1]}
+      position={[0, -0.5, -1]}
     />
   );
 }
@@ -27,4 +27,4 @@ export default function SecurityScene() {
   );
 }
 
-useGLTF.preload("/models/security_camera2.glb");
+useGLTF.preload("/models/security_camera2-draco.glb");

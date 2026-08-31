@@ -46,6 +46,30 @@ export default function HeroSlideshow({
   const [internalActive, setInternalActive] = useState(controlledActive ?? 0);
   const active = internalActive;
 
+  // Only the active slide + the next one in line ever get a real `src`.
+  // Without this, all 5 hero background images would fetch on page load
+  // even though 4 of them are just sitting at opacity: 0 waiting their
+  // turn — native `loading="lazy"` doesn't help here since they're all
+  // stacked in the same on-screen position, so the browser's viewport
+  // heuristic considers them all immediately visible. Loading the *next*
+  // slide (not just the active one) as soon as its predecessor becomes
+  // active gives it the full `interval` to finish downloading, so there's
+  // no visible pop/flash when the crossfade happens.
+  const [loadedIndices, setLoadedIndices] = useState<Set<number>>(
+    () => new Set([0]),
+  );
+
+  useEffect(() => {
+    setLoadedIndices((prev) => {
+      const next = (active + 1) % slides.length;
+      if (prev.has(active) && prev.has(next)) return prev;
+      const updated = new Set(prev);
+      updated.add(active);
+      updated.add(next);
+      return updated;
+    });
+  }, [active, slides.length]);
+
   useEffect(() => {
     if (controlledActive !== undefined) setInternalActive(controlledActive);
   }, [controlledActive]);
@@ -81,7 +105,7 @@ export default function HeroSlideshow({
           <div
             className="hero-slide-media absolute inset-0 h-full w-full"
             style={
-              slide.src
+              slide.src && loadedIndices.has(i)
                 ? {
                     backgroundImage: `url(${slide.src})`,
                     backgroundSize: "cover",

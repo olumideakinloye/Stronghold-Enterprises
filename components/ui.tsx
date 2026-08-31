@@ -70,12 +70,15 @@ export function Card({
       data-delay={delay}
     >
       {/* Background image */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center group-hover:scale-105 transition-all duration-700"
-        style={{
-          backgroundImage: `url(${bg})`,
-        }}
-      />
+      {bg && (
+        <img
+          src={bg}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 z-0 h-full w-full object-cover group-hover:scale-105 transition-all duration-700"
+        />
+      )}
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />

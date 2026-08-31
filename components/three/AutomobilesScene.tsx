@@ -4,12 +4,12 @@ import { useGLTF } from "@react-three/drei";
 import SceneShell from "./SceneShell";
 
 function AutomobileModel() {
-  const { scene } = useGLTF("/models/automobile.glb");
+  const { scene } = useGLTF("/models/automobile.glb", true); // true = use Draco decoder
 
   return (
     <primitive
       object={scene}
-      scale={1}
+      scale={100}
       position={[0, -1, 0]}
     />
   );

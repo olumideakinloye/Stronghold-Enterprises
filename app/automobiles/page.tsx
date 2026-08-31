@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Car, RefreshCw, Wrench, Gauge } from "lucide-react";
 import ModuleHero from "@/components/ModuleHero";
-import AutomobilesScene from "@/components/three/AutomobilesScene";
+import { AutomobilesScene } from "@/components/three/lazy";
 import { Section, Eyebrow, GlassCard, ScrollFade } from "@/components/ui";
 import LeadForm from "@/components/LeadForm";
 import { createClient } from "@/lib/supabase/server";

@@ -3,7 +3,7 @@ import SceneShell from "./SceneShell";
 import { useGLTF } from "@react-three/drei";
 
 function LogisticsModel() {
-  const { scene } = useGLTF("/models/logistics.glb");
+  const { scene } = useGLTF("/models/logistics.glb", true); // true = use Draco decoder
 
   return (
     <primitive

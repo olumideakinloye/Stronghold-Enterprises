@@ -1,6 +1,6 @@
 import { Truck, Plane, CalendarClock, Map } from "lucide-react";
 import ModuleHero from "@/components/ModuleHero";
-import LogisticsScene from "@/components/three/LogisticsScene";
+import { LogisticsScene } from "@/components/three/lazy";
 import { Section, Eyebrow, GlassCard, ScrollFade } from "@/components/ui";
 import LeadForm from "@/components/LeadForm";
 

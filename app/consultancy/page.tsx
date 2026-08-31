@@ -1,6 +1,6 @@
 import { Briefcase, Target, Layers, TrendingUp } from "lucide-react";
 import ModuleHero from "@/components/ModuleHero";
-import ConsultancyScene from "@/components/three/ConsultancyScene";
+import { ConsultancyScene } from "@/components/three/lazy";
 import { Section, Eyebrow, GlassCard, ScrollFade } from "@/components/ui";
 import LeadForm from "@/components/LeadForm";
 

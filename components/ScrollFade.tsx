@@ -45,6 +45,7 @@ export function ScrollFade({
             ref={ref}
             className={clsx("scroll-fade", className, isVisible && "is-visible")}
             data-delay={delay}
+            suppressHydrationWarning
         >
             {children}
         </Comp>

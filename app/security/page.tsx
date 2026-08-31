@@ -1,6 +1,6 @@
 import { ShieldCheck, Camera, Sun, Users } from "lucide-react";
 import ModuleHero from "@/components/ModuleHero";
-import SecurityScene from "@/components/three/SecurityScene";
+import { SecurityScene } from "@/components/three/lazy";
 import { Section, Eyebrow, GlassCard, ScrollFade } from "@/components/ui";
 import LeadForm from "@/components/LeadForm";
 import { createClient } from "@/lib/supabase/server";
