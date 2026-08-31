@@ -38,14 +38,14 @@ export default function ModuleHero({
       </div>
       <div className="mx-auto mt-0 h-full">
         <ScrollFade delay={150} className="relative h-full">
-          <ScrollFade className="glass-panel backdrop-blur-xl rounded-xl2 absolute z-50 p-5 my-auto sm:top-0 sm:bottom-0 sm:left-5 sm:max-w-lg h-fit sm:w-1/2">
+          <ScrollFade className="glass-panel backdrop-blur-xl rounded-xl2 absolute z-50 p-3 mx-5 sm:mx-0 sm:p-5 top-20 sm:my-auto sm:top-0 sm:bottom-0 sm:left-5 sm:max-w-lg h-fit sm:w-1/2">
             <span className="rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-green-dark bg-brand-green-mist w-fit">{eyebrow}</span>
-            <h1 className="mt-12 text-4xl font-extrabold tracking-tight sm:text-5xl">
+            <h1 className="mt-5 sm:mt-12 text-3xl font-extrabold tracking-tight sm:text-5xl">
               {title}
             </h1>
-            <p className="mt-8 max-w-md text-brand-muted">{description}</p>
+            <p className="mt-4 text-sm sm:text-base sm:mt-8 max-w-md text-brand-muted">{description}</p>
           </ScrollFade>
-          <div className="h-[340px] w-full overflow-hidden sm:h-auto"
+          <div className="w-full overflow-hidden pt-[70%] sm:pt-0 h-auto"
             style={{
               height: heroSceneHeight
                 ? `${heroSceneHeight}px`

@@ -57,7 +57,7 @@ const MODULES = [
 export default function HomePage() {
   return (
     <>
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute left-1/2 top-0 bottom-0 m-auto h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-brand-green/10 blur-3xl" />
         <div className="absolute left-[-10%] top-[90%] h-[380px] w-[380px] rounded-full bg-brand-green-light/20 blur-3xl" />
       </div>

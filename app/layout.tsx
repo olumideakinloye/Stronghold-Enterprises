@@ -31,7 +31,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-sans bg-brand-bg text-brand-ink antialiased pt-0">
+      <body className="font-sans bg-brand-bg text-brand-ink antialiased pt-0 overflow-x-hidden w-screen">
         <ScrollRevealProvider>
           <Navbar />
           <main className="relative">{children}</main>

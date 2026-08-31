@@ -249,7 +249,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="glass-panel absolute left-4 right-4 top-16 z-40 rounded-2xl p-4 md:hidden">
+        <div className="bg-white absolute left-4 right-4 top-16 z-40 rounded-2xl p-4 md:hidden">
           <div className="flex flex-col gap-1">
             {MODULES.map((m) => (
               <Link
