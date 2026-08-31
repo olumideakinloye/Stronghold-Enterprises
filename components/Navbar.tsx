@@ -168,8 +168,8 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/about">About</NavLink>
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
 
           <div
             className="relative"
@@ -236,7 +236,7 @@ export default function Navbar() {
             )}
           </div>
 
-          <NavLink href="/contact">Contact</NavLink>
+          <Link href="/contact">Contact</Link>
         </div>
 
         <div className="flex items-center gap-2">
@@ -259,8 +259,8 @@ export default function Navbar() {
       {open && (
         <div className="bg-white absolute left-4 right-4 top-16 z-40 rounded-2xl p-4 md:hidden">
           <div className="flex flex-col gap-1">
-            <NavLink href="/">Home</NavLink>
-            <NavLink href="/about">About</NavLink>
+            <Link onClick={() => setOpen(false)} href="/">Home</Link>
+            <Link onClick={() => setOpen(false)} href="/about">About</Link>
             {MODULES.map((m) => (
               <Link
                 key={m.href}
@@ -271,7 +271,7 @@ export default function Navbar() {
                 {m.label}
               </Link>
             ))}
-            <NavLink href="/contact">Contact</NavLink>
+            <Link onClick={() => setOpen(false)} href="/contact">Contact</Link>
             <Link
               href="/#contact"
               onClick={() => setOpen(false)}
