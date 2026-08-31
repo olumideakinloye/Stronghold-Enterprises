@@ -11,11 +11,12 @@ import {
 import { Section, Eyebrow, Card, ScrollFade } from "@/components/ui";
 import LeadForm from "@/components/LeadForm";
 import Hero from "@/components/Hero";
+import { getPublicAssetUrl } from "@/lib/supabase/storage";
 const MODULES = [
   {
     slug: "security",
     icon: ShieldCheck,
-    image: '/modules/security_card_bg.jpg',
+    image: getPublicAssetUrl("modules/security_card_bg.webp"),
     name: "Security",
     blurb: "Protection you don't have to think twice about.",
     highlights: ["Guard Services", "Surveillance Systems"],
@@ -23,7 +24,7 @@ const MODULES = [
   {
     slug: "real-estate",
     icon: HomeIcon,
-    image: '/modules/real-estate_card_bg.jpg',
+    image: getPublicAssetUrl("modules/real-estate_card_bg.webp"),
     name: "Real Estate",
     blurb: "Every address starts here.",
     highlights: ["Property Sales", "Rentals"]
@@ -31,7 +32,7 @@ const MODULES = [
   {
     slug: "consultancy",
     icon: Briefcase,
-    image: '/modules/consult_card_bg.png',
+    image: getPublicAssetUrl("modules/consult_card_bg.webp"),
     name: "Consultancy",
     blurb: "Strong foundations. Smarter decisions.",
     highlights: ["Business Structuring", "Financial Consultancy"]
@@ -39,7 +40,7 @@ const MODULES = [
   {
     slug: "logistics",
     icon: Truck,
-    image: '/modules/logistics_card_bg.jpeg',
+    image: getPublicAssetUrl("modules/logistics_card_bg.webp"),
     name: "Logistics",
     blurb: "Wherever it needs to go, however it needs to get there.",
     highlights: ["Airport Transfers", "Delivery Services"]
@@ -47,7 +48,7 @@ const MODULES = [
   {
     slug: "automobiles",
     icon: Car,
-    image: '/modules/automobiles_card_bg.jpeg',
+    image: getPublicAssetUrl("modules/automobiles_card_bg.webp"),
     name: "Automobiles",
     blurb: "Get moving, on your terms.",
     highlights: ["Car Rentals", "Car Sales"]

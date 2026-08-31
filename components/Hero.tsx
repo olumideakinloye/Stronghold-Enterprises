@@ -6,6 +6,7 @@ import { MapPin } from "lucide-react";
 import { Eyebrow, ScrollFade } from "@/components/ui";
 import ScrollCue from "@/components/ScrollCue";
 import HeroSlideshow, { type HeroSlide } from "@/components/HeroSlideshow";
+import { getPublicAssetUrl } from "@/lib/supabase/storage";
 import {
   ShieldCheck,
   Home as HomeIcon,
@@ -58,7 +59,7 @@ const HERO_SLIDES: (HeroSlide & {
   description: string;
 })[] = [
     {
-      src: "/hero/security_banner.jpeg",
+      src: getPublicAssetUrl("hero/security_banner.webp"),
       alt: "Security operations",
       eyebrow: "Security",
       title: (
@@ -70,7 +71,7 @@ const HERO_SLIDES: (HeroSlide & {
         "Professional protection, surveillance, and security solutions.",
     },
     {
-      src: "/hero/realestate_banner.jpeg",
+      src: getPublicAssetUrl("hero/realestate_banner.webp"),
       alt: "Real estate & property",
       eyebrow: "Real Estate",
       title: (
@@ -82,7 +83,7 @@ const HERO_SLIDES: (HeroSlide & {
       description: "Property sales, rentals, management, and development.",
     },
     {
-      src: "/hero/consultancy_banner.jpeg",
+      src: getPublicAssetUrl("hero/consultancy_banner.webp"),
       alt: "Business consultancy",
       eyebrow: "Consultancy",
       title: (
@@ -94,7 +95,7 @@ const HERO_SLIDES: (HeroSlide & {
       description: "Practical guidance for businesses and organizations.",
     },
     {
-      src: "/hero/logistics_banner.png",
+      src: getPublicAssetUrl("hero/logistics_banner.webp"),
       alt: "Logistics & transport",
       eyebrow: "Logistics",
       title: (
@@ -106,7 +107,7 @@ const HERO_SLIDES: (HeroSlide & {
         "From airport transfers to interstate travel and event transportation, we get you where you need to be.",
     },
     {
-      src: "/hero/automobile_banner.jpg",
+      src: getPublicAssetUrl("hero/automobile_banner.webp"),
       alt: "Automobiles",
       eyebrow: "Automobiles",
       title: (
@@ -125,7 +126,7 @@ export default function Hero() {
   const slide = HERO_SLIDES[active];
 
   return (
-    <section className="relative h-screen flex items-center overflow-hidden">
+    <section className="relative h-dvh flex items-center overflow-hidden">
       <HeroSlideshow
         slides={HERO_SLIDES}
         active={active}
