@@ -41,7 +41,7 @@ export default function LeadForm({
   const onSubmit = async (values: FormValues) => {
     if (values.website) return; // honeypot triggered — silently drop
     setStatus("idle");
-    const supabase = createClient();
+    const supabase = await createClient();
     const { error } = await supabase.from("leads").insert({
       module,
       name: values.name,

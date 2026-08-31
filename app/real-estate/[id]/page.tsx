@@ -14,7 +14,7 @@ const STATUS_LABEL: Record<string, string> = {
 };
 
 export default async function PropertyDetailPage({ params }: { params: { id: string } }) {
-  const supabase = createClient();
+    const supabase = await createClient();
   const { data: property } = await supabase
     .from("property_listings")
     .select("*")

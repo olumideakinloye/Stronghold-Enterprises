@@ -10,7 +10,7 @@ export const revalidate = 60;
 const TXN_LABEL: Record<string, string> = { buy: "Buy", sell: "Sell", swap: "Swap" };
 
 export default async function VehicleDetailPage({ params }: { params: { id: string } }) {
-  const supabase = createClient();
+    const supabase = await createClient();
   const { data: vehicle } = await supabase
     .from("vehicle_listings")
     .select("*")

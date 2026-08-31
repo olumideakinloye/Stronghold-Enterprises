@@ -36,7 +36,7 @@ export default function AdminSidebar({
   const router = useRouter();
 
   const signOut = async () => {
-    const supabase = createClient();
+    const supabase = await createClient();
     await supabase.auth.signOut();
     router.push("/admin/login");
     router.refresh();
