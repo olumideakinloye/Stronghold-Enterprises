@@ -126,7 +126,7 @@ export default function Hero() {
   const slide = HERO_SLIDES[active];
 
   return (
-    <section className="relative h-dhv flex items-center overflow-hidden">
+    <section className="relative h-svh flex items-center overflow-hidden">
       <HeroSlideshow
         slides={HERO_SLIDES}
         active={active}
