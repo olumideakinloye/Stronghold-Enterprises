@@ -167,7 +167,7 @@ export default function Navbar() {
           <span className="hidden sm:inline">Stronghold</span>
         </Link>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-3 md:flex">
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
 
